@@ -1,0 +1,22 @@
+version = 1
+requires-python = ">=3.13"
+
+[[package]]
+name = "minizinc"
+version = "0.9.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/85/8f/91efc03090c536797fb2c023ed3418217d1804cdfd2744c27a71e8fad8e8/minizinc-0.9.0.tar.gz", hash = "sha256:5a85d4183bc3451ed48a1f8b7589755e13f557e8701cca32ab3f33c03c9f5c5b", size = 37129 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8c/9e/8e27a8346ee9620f35fe740329c612357279eabc3733f84c90b08b2b937f/minizinc-0.9.0-py3-none-any.whl", hash = "sha256:cf50f0de07a93eca141d4a984dd623c0794898558ca9d22771bdf67817ae86fd", size = 39889 },
+]
+
+[[package]]
+name = "project"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "minizinc" },
+]
+
+[package.metadata]
+requires-dist = [{ name = "minizinc", specifier = ">=0.9.0" }]
