@@ -1,0 +1,5 @@
+lark==1.1.1
+minizinc==0.5.0
+pyqt5==5.15.6
+pyqt5-qt5==5.15.15
+pyqt5-sip==12.16.1
