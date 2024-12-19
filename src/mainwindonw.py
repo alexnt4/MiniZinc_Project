@@ -4,10 +4,9 @@ import time
 from PyQt5 import QtCore, QtGui, QtWidgets
 from minizinc import Instance, Model, Solver
 
-
 class Ui_Dialog(object):
     def __init__(self, parent=None):
-        self.mzn_model = Model('./model2.mzn')
+        self.mzn_model = Model('./model.mzn')
         self.solver = Solver.lookup("gecode")
         self.mzn_instance = None
     
@@ -49,9 +48,8 @@ class Ui_Dialog(object):
         self.max_x = matriz * self.scale
         self.max_y = matriz * self.scale
 
-
         base = self.mzn_instance._data["ciudades"]
-
+        
         # Limpia la escena antes de dibujar
         self.scene.clear()
 
@@ -83,8 +81,6 @@ class Ui_Dialog(object):
 
                     if (corrected_y, corrected_x) not in base_coords:
                         filtered_coords.append((corrected_x, corrected_y))
-
-                    #print(f"Encontrado 1 en coordenada: ({corrected_x}, {corrected_y})")
 
                     # Calcula la posición del círculo rojo en la escena
                     circle_x = corrected_x * self.scale - 5
@@ -120,16 +116,6 @@ class Ui_Dialog(object):
         text += (f"coordenadas de las nuevas localizaciones {coor}\n")
         self.labelResult.setText(text)
 
-
-
-
-
-        
-
-
-        
-
-
     def buttonFileClicked(self):
         options = QtWidgets.QFileDialog.Options()
         filename, _ = QtWidgets.QFileDialog.getOpenFileName(None, "QFileDialog.getOpenFileName()", "", "Dzn Files (*.dzn)", options=options)
@@ -153,17 +139,9 @@ class Ui_Dialog(object):
         duration = time.time() - start_time
         if (self.result):
             self.labelData.setText(f"Modelo Resuleto! Duración: {duration} segundos")
-            #print(self.result)
-            #print(self.result["gananciaciudades"])
-            #objective = self.result.objective
-            #print("Objective:", objective)
-            #print(self.solution)
             self.drawSolution()
-            #print(self.result["gananciatotal"])
-            #self.labelResult.setText(res)
         else:
             self.labelData.setText(f"No hay solución para el modelo. Tiempo de ejecución: {duration}")
-
 
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -235,7 +213,6 @@ class Ui_Dialog(object):
         self.pushButtonSolver.setText(_translate("Dialog", "Resolver"))
         self.labelMessage.setText(_translate("Dialog", "Seleccione un archivo de datos para empezar. El solver por defecto es Gecode"))
         self.labelData.setText(_translate("Dialog", "Esperando datos..."))
-
 
 if __name__ == "__main__":
     import sys

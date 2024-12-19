@@ -24,7 +24,7 @@ int: num_programas;
 
 % Variables
 
-%ubicacion
+%ubicaciones que es la matriz final, por defectos es una matriz de ceros de n x n y cuando hay una ubicacion la posicion es 1
 array[1..tamano_matriz, 1..tamano_matriz] of var 0..1: ubicaciones;
 
 
@@ -37,7 +37,7 @@ array[1..tamano_matriz, 1..tamano_matriz] of int: ubicaciones_predefinidas =
      then 1 else 0 endif | i, j in 1..tamano_matriz]);
 
 
-% Restricción: las ubicaciones predefinidas deben permanecer como 1
+% Restricción: las ubicaciones predefinidas deben permanecer como 1 en la matriz de ceros
 constraint forall(i, j in 1..tamano_matriz)(
   ubicaciones_predefinidas[i, j] = 1 -> ubicaciones[i, j] = 1
 );
@@ -80,12 +80,14 @@ var int: ganancia = sum(i, j in 1..tamano_matriz where ubicaciones[i, j] = 1)(
   suma_vecinos(matriz_entorno_empresarial, i, j)
 );
 
-% Ganancia calculada únicamente para las coordenadas de las ciudades
+% Ganancia calculada únicamente para las coordenadas de las ciudades predefinidas
 var int: ganancia_ciudades = sum(c in 1..num_posiciones_existentes)(
   suma_vecinos(matriz_segmento_poblacion, ciudades[c, 2], ciudades[c, 1]) +
   suma_vecinos(matriz_entorno_empresarial, ciudades[c, 2], ciudades[c, 1])
 );
 
+
+% maximizar la ganancia
 solve maximize ganancia;
 
 
