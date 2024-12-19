@@ -29,13 +29,13 @@ class Ui_Dialog(object):
         self.max_x = matriz*self.scale
         self.max_y = matriz*self.scale
 
-        # draw vertical lines
+        # dibujar lineas verticales
         for item in range(matriz+1):
             self.scene.addLine(item*self.scale, self.padding_y, item*self.scale, self.max_y+self.padding_y, self.pen)
-        # draw horizontal lines
+        # dibujar lineas horizontales
         for item in range(matriz+1):  
             self.scene.addLine(0, item*self.scale+self.padding_y, self.max_x, item*self.scale+self.padding_y, self.pen)
-        # draw cities
+        # dibujar ciudades
         for item in range(n_ciudades):
             ciudad_x = ciudades[item][0] * self.scale - 5
             ciudad_y = ciudades[item][1] * self.scale + self.padding_y - 5
