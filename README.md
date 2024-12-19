@@ -40,65 +40,48 @@ The challenge involves:
 ## 📂 Project Structure
 
 ```
-final-project/
+project/
 ├── src/
 │   ├── models/
 │   │   ├── model.mzn       # MiniZinc Model
-│   │   ├── data.txt        # Example input data
-│   │   └── output.txt      # Example output data
 │   ├── interface/
-│   │   ├── main.py         # Main Python script
-│   │   └── ui.py           # Graphical interface code
+│   │   ├── mainwindow.py   # Main Python script
+│   │   └── __init__.py     # Initialization script
+├── data/
+│   ├── data3.dzn           # Data file
+│   ├── data4.dzn           # Data file
+│   ├── data5.dzn           # Data file
+│   └── data6.dzn           # Data file
 ├── docs/
-│   ├── report.pdf          # Technical report in IEEE format
-├── tests/
-│   ├── test_model.py       # Unit tests for the model
+│   ├── Informe proyecto 2 - ADA.pdf  # Project report
 ├── README.md
-└── requirements.txt        # Project dependencies
+├── requirements.txt        # Project dependencies
+
+
 ```
 
 ---
 
-## 📊 Example Execution
-
-### Input
-```txt
-3
-6 8
-8 4
-10 10
-15
-...
-4
-```
-
-### Expected Output
-```txt
-120
-240
-6 8
-8 4
-10 10
-2 3
-5 5
-12 1
-13 15
-```
-
----
 
 ## 🛠️ Installation
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your_username/final-project.git
-   cd final-project
+   git clone https://github.com/alexnt4/MiniZinc_Project
    ```
-2. Install dependencies using `uv`:
+
+2. Ensure [MiniZinc](https://www.minizinc.org/) is installed and properly configured.
+
+3. Create an enviroment with `uv env`
+
+4. Activate the enviroment with `source .venv/bin/activate`
+
+5. Install dependencies using `uv`:
    ```bash
-   uv install
+   uv pip install -r requirements.txt
    ```
-3. Ensure [MiniZinc](https://www.minizinc.org/) is installed and properly configured.
+
+6. Use with `uv run mainwindow`
 
 
 ---
