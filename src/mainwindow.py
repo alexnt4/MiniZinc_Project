@@ -17,8 +17,8 @@ class Ui_Dialog(object):
         self.greenBrush = QtGui.QBrush(QtCore.Qt.green)
         self.redBrush = QtGui.QBrush(QtCore.Qt.red)
         self.graphicsView.setScene(self.scene)
-        self.scale = 50 # scale of pixels to draw everything
-        self.padding_y = 50 # space to move y pixels
+        self.scale = 50 
+        self.padding_y = 50 
 
 
     def drawPlane(self):
