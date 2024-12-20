@@ -1,3 +1,12 @@
+%Integrantes
+
+%García Castañeda Alex -2259517
+%Arango Rodas, Manuel - 2259571
+%Gomez Agudelo, Sebastián - 2259474
+%Henao Aricapa, Stiven - 2259603
+
+
+
 % parametrizacion
 
 % Número de posiciones existentes
